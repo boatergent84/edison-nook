@@ -1,5 +1,5 @@
 "use client";
-import {useState} from "react";
+import {useState,useEffect} from "react";
 import {ArrowRight,CalendarDays,MapPin,Menu,X,Star,Clock,Check,Instagram,Mail} from "lucide-react";
 
 const fmt=(v:string)=>v?new Date(v+"T12:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}):"";
@@ -7,7 +7,8 @@ const days=(a:string,b:string)=>Math.round((new Date(b+"T12:00:00").getTime()-ne
 export default function Home(){
  const [menu,setMenu]=useState(false),[arrival,setArrival]=useState(""),[departure,setDeparture]=useState(""),[guests,setGuests]=useState("2"),[early,setEarly]=useState(false),[late,setLate]=useState(false);
  const nights=arrival&&departure?Math.max(0,days(arrival,departure)):0;
- const today=new Date().toLocaleDateString("en-CA");
+ const [today,setToday]=useState("2026-11-07");
+ useEffect(()=>{setToday(new Date().toLocaleDateString("en-CA"));},[]);
  const sampleRate=225, sampleCleaning=125, sampleTax=0.10;
  const subtotal=nights*sampleRate+sampleCleaning+(early?35:0)+(late?35:0);
  const total=Math.round(subtotal*(1+sampleTax)*100)/100;
