@@ -56,6 +56,7 @@ export default async function GuestPage({ params }: Props) {
       {section === "explore" && (
         <>
           <p className="lead">Spend some time by the bay, explore downtown Petoskey, or add a day in Boyne Country to your trip.</p>
+          <p><Link className="text-link" href="/about">Discover the hilltop setting and more things to do</Link></p>
           <div className="place-grid">
             {places.map(([name, description, href]) => (
               <article className="panel" key={name}>
@@ -69,7 +70,7 @@ export default async function GuestPage({ params }: Props) {
         <div className="faq">
           <details><summary>How do I book?</summary><p>{bookingUrl ? "Open the reservation portal to check dates and book." : "Online reservations are coming soon."} <Link href="/book">Visit the booking page</Link>.</p></details>
           {bookingUrl && <details><summary>Where can I see rates and cancellation terms?</summary><p>Review the price and terms for your dates in the reservation portal before you confirm.</p></details>}
-          <details><summary>Where is Edison Nook?</summary><p>Edison Nook is in the Petoskey area of Northern Michigan. <Link href="/explore">Explore the area</Link>.</p></details>
+          <details><summary>Where is Edison Nook?</summary><p>Edison Nook is in Boyne Falls, in the Petoskey area of Northern Michigan. <Link href="/explore">Explore the area</Link>.</p></details>
           {!propertyPhotos.length && <details><summary>When will property photos be available?</summary><p>Photos will be added to <Link href="/stay">The Stay</Link> as soon as they’re ready.</p></details>}
         </div>
       )}

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const links = [
+  ["About", "/about"],
   ["The Stay", "/stay"],
   ["Explore Nearby", "/explore"],
   ["Why Book Direct", "/compare"],
@@ -31,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="content">{children}</main>
         <footer>
           <div className="shell footer-inner">
-            <div><Link className="brand" href="/">Edison <em>Nook</em></Link><p>Petoskey area · Northern Michigan</p></div>
+            <div><Link className="brand" href="/">Edison <em>Nook</em></Link><p>Boyne Falls · Northern Michigan</p></div>
             <nav aria-label="Footer navigation">
               {links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
               <Link href="/guests">Guest Guide</Link>
