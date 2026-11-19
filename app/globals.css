@@ -41,19 +41,21 @@ nav a:hover { text-decoration: underline; text-underline-offset: .3em; }
 .lead { max-width: 37rem; font-size: clamp(1.07rem, 2vw, 1.28rem); }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1.8rem; }
 .hero-art {
-  display: grid;
-  place-items: center;
+  position: relative;
   min-height: 18rem;
-  padding-inline: clamp(1rem, 3vw, 2.5rem);
+  aspect-ratio: 1.05;
+  overflow: hidden;
   background: radial-gradient(ellipse at 28% 20%, #29435d, var(--navy) 65%);
   outline: 1px solid #b99c64;
   outline-offset: -.9rem;
 }
 .hero-art img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 30rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100% - 2.5rem);
+  height: 122%;
+  transform: translate(-50%, -50%);
   object-fit: contain;
 }
 .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1rem; }
