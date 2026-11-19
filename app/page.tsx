@@ -1,10 +1,8 @@
 import Image from "next/image";
-import { propertyPhotos } from "./site-config";
+import houseExterior from "./images/edison-nook-exterior.webp";
 import Link from "next/link";
 
 export default function Home() {
-  const [heroPhoto] = propertyPhotos;
-
   return (
     <>
       <section className="shell hero">
@@ -17,11 +15,14 @@ export default function Home() {
             <Link className="text-link" href="/about">Get to know Edison Nook</Link>
           </div>
         </div>
-        {heroPhoto ? (
-          <div className="hero-photo"><Image {...heroPhoto} fill sizes="(max-width: 790px) 100vw, 50vw" priority /></div>
-        ) : (
-          <div className="hero-art" aria-hidden="true"><span>E<span className="gold">&amp;</span>N</span></div>
-        )}
+        <div className="hero-art">
+          <Image
+            src={houseExterior}
+            alt="Edison Nook’s white farmhouse with two stacked porches"
+            sizes="(max-width: 790px) 85vw, 40vw"
+            priority
+          />
+        </div>
       </section>
       <section className="shell home-links" aria-label="Plan your getaway">
         <article><p className="kicker">Edison Nook</p><h2>The Stay</h2><p>Get a feel for the retreat and see what’s coming to the property gallery.</p><Link className="text-link" href="/stay">See the stay</Link></article>

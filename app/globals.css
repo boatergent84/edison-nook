@@ -40,13 +40,25 @@ nav a:hover { text-decoration: underline; text-underline-offset: .3em; }
 .kicker { margin-bottom: 1.15rem; color: var(--gold-text); font-size: .88rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .lead { max-width: 37rem; font-size: clamp(1.07rem, 2vw, 1.28rem); }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1.8rem; }
-.hero-art { display: grid; place-items: center; min-height: 18rem; background: radial-gradient(ellipse at 28% 20%, #29435d, var(--navy) 65%); color: white; outline: 1px solid #b99c64; outline-offset: -.9rem; font: italic clamp(3.75rem, 10vw, 9rem)/1 Georgia, serif; letter-spacing: -.11em; padding-right: .11em; }
-.hero-photo, .gallery-photo { position: relative; }
-.hero-photo { min-height: 18rem; }
-.hero-photo img, .gallery-photo img { object-fit: cover; }
+.hero-art {
+  display: grid;
+  place-items: center;
+  min-height: 18rem;
+  padding-inline: clamp(1rem, 3vw, 2.5rem);
+  background: radial-gradient(ellipse at 28% 20%, #29435d, var(--navy) 65%);
+  outline: 1px solid #b99c64;
+  outline-offset: -.9rem;
+}
+.hero-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 30rem;
+  object-fit: contain;
+}
 .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1rem; }
-.gallery-photo { aspect-ratio: 4 / 3; }
-.gold { color: #d6ba80; font-size: .52em; vertical-align: 15%; margin-inline: .11em .25em; }
+.gallery-photo { position: relative; aspect-ratio: 4 / 3; }
+.gallery-photo img { object-fit: cover; }
 .home-links, .place-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
 .home-links { padding-block: 2rem 4.5rem; border-top: 1px solid var(--line); }
 .home-links article { border-left: 2px solid var(--gold); padding-inline: 1.2rem .5rem; }
