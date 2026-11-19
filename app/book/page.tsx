@@ -24,7 +24,10 @@ export default function Book() {
           </>
         )}
       </div>
-      <Link className="text-link" href="/faq">Read the booking FAQs</Link>
+      <div className="actions">
+        <Link className="text-link" href="/compare">Compare Airbnb and booking direct</Link>
+        <Link className="text-link" href="/faq">Read the booking FAQs</Link>
+      </div>
     </section>
   );
 }

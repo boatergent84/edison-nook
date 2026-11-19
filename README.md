@@ -20,3 +20,14 @@ the guest pages as they become available.
 For the homepage and gallery, put images under `public/photos/` and add their
 paths and descriptive alt text to `propertyPhotos` in `app/site-config.ts`. The
 first image is used on the homepage.
+
+## Guest guide and comparison
+
+The guest guide uses sample stay instructions and credentials. On Vercel Preview
+and in local development, the sample guide password is `nook-preview`. For a
+production deployment, the guide stays locked until you set a strong,
+server-side `EDISON_NOOK_GUEST_PASSWORD`. Changing it invalidates previous guest
+sessions. Use individual reservation messages for real door codes.
+
+Replace the illustrative booking totals and timing examples when actual terms
+are confirmed.

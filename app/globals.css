@@ -79,3 +79,26 @@ footer p { margin: .65rem 0 0; font-size: .94rem; }
   .shell { width: calc(100% - 2rem); }
   .header .button { padding-inline: .75rem; }
 }
+
+.comparison { margin-block: 1.8rem; }
+.comparison table { width: min(100%, 54rem); border-collapse: collapse; text-align: left; }
+.comparison caption { caption-side: bottom; text-align: left; padding-top: .75rem; }
+.comparison th, .comparison td { padding: .9rem clamp(.4rem, 2vw, 1.25rem); border-bottom: 1px solid var(--line); vertical-align: top; }
+.comparison thead { background: var(--navy); color: #fff; }
+.comparison tbody td:nth-child(2) { background: var(--paper); font-weight: 650; color: var(--navy); }
+.guest-form { display: grid; justify-items: start; gap: .6rem; }
+.guest-form input { width: min(100%, 24rem); padding: .65rem; border: 1px solid var(--gold-text); font: inherit; }
+.guest-form input:focus-visible, .button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.form-error { color: #9a2525; }
+.sample-note { border-left: 2px solid var(--gold); padding: .65rem 1rem; background: var(--paper); }
+.guest-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-block: 1.5rem; }
+.guest-grid .panel { margin: 0; }
+.guest-grid ul { margin: 0; padding-left: 1.3rem; }
+.guest-grid li + li { margin-top: .45rem; }
+.guest-grid dt { font-weight: 650; }
+.guest-grid dd { margin: 0 0 .5rem; overflow-wrap: anywhere; }
+
+@media (max-width: 620px) {
+  .guest-grid { grid-template-columns: 1fr; }
+  .comparison th, .comparison td { font-size: .92rem; }
+}
