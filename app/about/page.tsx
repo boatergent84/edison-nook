@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <section className="shell inner">
-      <p className="kicker">Boyne Falls · Northern Michigan</p>
+      <p className="kicker">Boyne Falls / Petoskey · Northern Michigan</p>
       <h1>About <em>Edison Nook</em></h1>
       <div className="about-intro">
         <h2>A hilltop hideaway in Boyne Falls</h2>
-        <p className="lead">Edison Nook sits high above Johnson Road, with a view of wooded hills that changes with the seasons. Start the day with coffee and a look out over the treetops. In fall, watch the hills turn gold and red. In winter, come back from the slopes to a quieter corner of Northern Michigan.</p>
+        <p className="lead">Edison Nook sits high above Johnson Road in Boyne Falls, just south of the Petoskey ZIP code line. From the hilltop, the view of the wooded hills changes with the seasons. Start the day with coffee and a look out over the treetops. In fall, watch the hills turn gold and red. In winter, come back from the slopes to a quieter corner of Northern Michigan.</p>
         <p>Michigan DNR state forest land is nearby, in the Gaylord Forest Management Unit. For a walk in the woods, pick up the North Country Trail at its public crossing on Johnson Road. <a className="text-link" href="https://northcountrytrail.org/events/j45-081625/">Find the Johnson Road crossing</a>.</p>
       </div>
 

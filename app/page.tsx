@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <section className="shell hero">
         <div className="hero-copy">
-          <p className="kicker">Boyne Falls · Northern Michigan</p>
+          <p className="kicker">Boyne Falls / Petoskey · Northern Michigan</p>
           <h1>A little time <em>Up North.</em></h1>
           <p className="lead">Slow mornings, days by Little Traverse Bay, and a place to come back to. Make Edison Nook your home base in Northern Michigan.</p>
           <div className="actions">
