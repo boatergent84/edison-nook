@@ -67,6 +67,12 @@ nav a:hover { text-decoration: underline; text-underline-offset: .3em; }
 .home-links { padding-block: 2rem 4.5rem; border-top: 1px solid var(--line); }
 .home-links article { border-left: 2px solid var(--gold); padding-inline: 1.2rem .5rem; }
 .home-links .kicker { margin-bottom: .55rem; }
+.home-location { max-width: 77rem; margin-block: 0 4rem; padding-block: 2.5rem; border-top: 1px solid var(--line); }
+.home-location h2 { max-width: 42rem; }
+.home-location p:not(.kicker) { max-width: 48rem; }
+.area-guide-section { margin-block: 3rem 1.5rem; padding: 1.4rem 0 0 1.2rem; border-left: 2px solid var(--gold); }
+.area-guide-section h2 { font-size: clamp(1.7rem, 4vw, 2.35rem); }
+.area-guide-grid .panel h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
 .inner { padding-block: clamp(3rem, 8vw, 6.5rem); }
 .inner h1 { font-size: clamp(3rem, 7.6vw, 5.8rem); }
 .panel { background: var(--paper); border-top: 2px solid var(--gold); padding: clamp(1.2rem, 3vw, 2.25rem); margin-block: 1.65rem; }

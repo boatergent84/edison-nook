@@ -1,11 +1,27 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import houseExterior from "./images/edison-nook-exterior.webp";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.edisonnook.com"),
-  title: { default: "Edison Nook | A Northern Michigan getaway", template: "%s | Edison Nook" },
-  description: "Discover Edison Nook, a Northern Michigan getaway near Petoskey. Planned opening January 2027; reservations are not open yet.",
+  title: { default: "Edison Nook | Boyne Falls Vacation Rental Near Petoskey", template: "%s | Edison Nook" },
+  description: "Discover Edison Nook, a planned Boyne Falls, Michigan vacation rental near Petoskey, Walloon Lake, and Boyne Mountain. Opening planned for January 2027.",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Edison Nook",
+    title: "Edison Nook | Boyne Falls Vacation Rental Near Petoskey",
+    description: "A planned Northern Michigan getaway in Boyne Falls, near Petoskey, Walloon Lake, and Boyne Mountain. Opening planned for January 2027.",
+    url: "/",
+    images: [{ url: houseExterior.src, width: houseExterior.width, height: houseExterior.height, alt: "Edison Nook farmhouse in Boyne Falls, Michigan" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Edison Nook | Boyne Falls Vacation Rental Near Petoskey",
+    description: "A planned Northern Michigan getaway in Boyne Falls, near Petoskey, Walloon Lake, and Boyne Mountain. Opening planned for January 2027.",
+    images: [houseExterior.src],
+  },
 };
 
 const links = [
