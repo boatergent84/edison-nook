@@ -54,6 +54,10 @@ export default async function Guests({ searchParams }: Props) {
               <ul><li>Check out by 10 a.m.</li><li>Load the dishwasher and take bagged trash to the outdoor bin.</li><li>Check for chargers and belongings, turn off the lights, and lock the door.</li></ul>
             </article>
           </div>
+          <article className="panel">
+            <h2>Floor Plan</h2>
+            <p>Floor plan coming soon.</p>
+          </article>
           <form action={lock}><button className="button" type="submit">Lock Guest Guide</button></form>
         </>
       )}
