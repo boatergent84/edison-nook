@@ -106,3 +106,8 @@ footer p { margin: .65rem 0 0; font-size: .94rem; }
 .about-intro { max-width: 46rem; margin-bottom: 3rem; }
 .about-intro .lead { max-width: none; }
 .about-grid h3 { margin: 0 0 .65rem; font: 400 clamp(1.45rem, 3vw, 2rem)/1.12 Georgia, serif; color: var(--navy); }
+
+.nearby { margin-bottom: 3rem; }
+.nearby dl { margin: 0; }
+.nearby dl div { display: flex; justify-content: space-between; gap: 1rem; padding-block: .65rem; border-top: 1px solid var(--line); }
+.nearby dd { margin: 0; font-weight: 650; color: var(--navy); white-space: nowrap; }
