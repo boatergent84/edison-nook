@@ -1,33 +1,33 @@
-"use client";
-import {useState,useEffect} from "react";
-import {ArrowRight,CalendarDays,MapPin,Menu,X,Star,Clock,Check,Instagram,Mail} from "lucide-react";
+import Image from "next/image";
+import { propertyPhotos } from "./site-config";
+import Link from "next/link";
 
-const fmt=(v:string)=>v?new Date(v+"T12:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}):"";
-const days=(a:string,b:string)=>Math.round((new Date(b+"T12:00:00").getTime()-new Date(a+"T12:00:00").getTime())/86400000);
-export default function Home(){
- const [menu,setMenu]=useState(false),[arrival,setArrival]=useState(""),[departure,setDeparture]=useState(""),[guests,setGuests]=useState("2"),[early,setEarly]=useState(false),[late,setLate]=useState(false);
- const nights=arrival&&departure?Math.max(0,days(arrival,departure)):0;
- const [today,setToday]=useState("2026-11-07");
- useEffect(()=>{setToday(new Date().toLocaleDateString("en-CA"));},[]);
- const sampleRate=225, sampleCleaning=125, sampleTax=0.10;
- const subtotal=nights*sampleRate+sampleCleaning+(early?35:0)+(late?35:0);
- const total=Math.round(subtotal*(1+sampleTax)*100)/100;
- return <main>
-  <div className="announcement">YOUR NORTHERN MICHIGAN ESCAPE AWAITS <span>✦</span> PETOSKEY AREA</div>
-  <header className="header"><a className="brand" href="#">EDISON <span>NOOK</span><small>NORTHERN MICHIGAN</small></a>
-   <nav className={menu?"nav open":"nav"}><a href="#home" onClick={()=>setMenu(false)}>Home</a><a href="#stay" onClick={()=>setMenu(false)}>The Stay</a><a href="#gallery" onClick={()=>setMenu(false)}>Gallery</a><a href="#explore" onClick={()=>setMenu(false)}>Explore</a><a href="#reviews" onClick={()=>setMenu(false)}>Reviews</a></nav>
-   <a className="navBook" href="#book">BOOK YOUR STAY <ArrowRight size={15}/></a><button className="mobileMenu" aria-label="Toggle menu" onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button>
-  </header>
-  <section className="hero" id="home"><div className="heroArt"><div className="heroPattern"></div><div className="placeholderTag">YOUR PROPERTY PHOTO WILL GO HERE</div></div><div className="heroOverlay"><div className="eyebrow light">WELCOME TO EDISON NOOK <span>—</span> NORTHERN MICHIGAN</div><h1>A little space.<br/><em>A lot to remember.</em></h1><p>A thoughtfully curated retreat for slowing down, settling in, and experiencing the beauty of Up North.</p><a className="whiteButton" href="#book">EXPLORE YOUR STAY <ArrowRight size={17}/></a></div><div className="heroSide">45° N · NORTHERN MICHIGAN</div></section>
-  <div className="bookingStrip"><div><span>ARRIVAL</span><a href="#book">Choose your dates <CalendarDays size={16}/></a></div><div><span>DEPARTURE</span><a href="#book">Choose your dates <CalendarDays size={16}/></a></div><div><span>GUESTS</span><a href="#book">Select guests <ArrowRight size={16}/></a></div><a className="darkButton" href="#book">CHECK AVAILABILITY <ArrowRight size={16}/></a></div>
-  <section className="intro section" id="stay"><div className="eyebrow">THE ART OF GETTING AWAY</div><h2>Welcome to your<br/><em>home away from home.</em></h2><p>Some places invite you to do more. Edison Nook invites you to simply be. A comfortable Northern Michigan hideaway, perfectly positioned for days of adventure and evenings of rest.</p><div className="introDetails"><span>THOUGHTFUL COMFORT</span><i>✦</i><span>FOUR-SEASON ESCAPE</span><i>✦</i><span>UP NORTH CHARM</span></div></section>
-  <section className="gallery section" id="gallery"><div className="sectionTop"><div><div className="eyebrow">A CLOSER LOOK</div><h2>Make yourself <em>at home.</em></h2></div><p>Real photos of Edison Nook are coming soon. We&apos;re getting everything ready for your first look.</p></div><div className="galleryGrid"><div className="photoSlot large"><span>01 / LIVING SPACES</span><strong>ROOM TO UNWIND</strong></div><div className="photoSlot"><span>02 / THE DETAILS</span><strong>THOUGHTFUL TOUCHES</strong></div><div className="photoSlot darker"><span>03 / OUTDOORS</span><strong>FRESH AIR, FRESH PERSPECTIVE</strong></div></div></section>
-  <section className="experience section" id="explore"><div className="eyebrow">BEYOND THE FRONT DOOR</div><h2>The best of <em>Northern Michigan.</em></h2><p>From scenic lakefronts to charming downtown streets, a memorable escape is waiting just beyond your doorstep.</p><div className="experienceGrid"><article><div className="experienceArt art1"><MapPin size={28}/></div><span>01 / EXPLORE</span><h3>Petoskey & the Lakeshore</h3><p>Discover downtown boutiques, waterfront views, and the character of Little Traverse Bay.</p></article><article><div className="experienceArt art2"><MapPin size={28}/></div><span>02 / ADVENTURE</span><h3>Boyne Country</h3><p>Find four-season adventures, from skiing and snow-covered trails to summer excursions.</p></article><article><div className="experienceArt art3"><MapPin size={28}/></div><span>03 / SLOW DOWN</span><h3>Up North Moments</h3><p>Explore quiet trails, small-town dining, and the simple pleasure of getting away.</p></article></div></section>
-  <section className="quoteSection" id="reviews"><div className="eyebrow light">KIND WORDS</div><div className="stars"><Star/><Star/><Star/><Star/><Star/></div><h2>Good stays make<br/><em>great memories.</em></h2><p>Verified guest reviews will appear here after Edison Nook welcomes its first visitors.</p></section>
-  <section className="booking section" id="book"><div className="bookingIntro"><div className="eyebrow">YOUR STAY STARTS HERE</div><h2>Find your <em>moment away.</em></h2><p>Choose your preferred dates to preview a sample stay estimate. Direct online reservations will be enabled once the live calendar, pricing, and secure checkout are connected.</p><div className="bookingNotes"><p><Check size={16}/> Transparent pricing</p><p><Check size={16}/> Secure checkout planned</p><p><Check size={16}/> Airbnb calendar sync planned</p></div></div>
-   <div className="bookingCard"><div className="cardHeader"><div><small>PLAN YOUR ESCAPE</small><h3>Reserve Edison Nook</h3></div><CalendarDays size={25}/></div><div className="fieldGrid"><label>CHECK-IN<input type="date" min={today} value={arrival} onChange={e=>{setArrival(e.target.value);if(departure&&e.target.value>=departure)setDeparture("");}}/></label><label>CHECKOUT<input type="date" min={arrival||today} value={departure} onChange={e=>setDeparture(e.target.value)}/></label></div><label className="fullLabel">GUESTS<select value={guests} onChange={e=>setGuests(e.target.value)}>{[1,2,3,4,5,6,7,8].map(n=><option key={n} value={n}>{n} {n===1?"guest":"guests"}</option>)}</select></label><div className="extras"><h4>Make your stay even easier</h4><label><span><Clock size={17}/> Early check-in <small>Subject to availability</small></span><span>+$35 <input type="checkbox" checked={early} onChange={e=>setEarly(e.target.checked)}/></span></label><label><span><Clock size={17}/> Late checkout <small>Subject to availability</small></span><span>+$35 <input type="checkbox" checked={late} onChange={e=>setLate(e.target.checked)}/></span></label></div>
-   {nights>0?<div className="estimate"><div><span>{nights} nights × ${sampleRate}</span><b>${nights*sampleRate}</b></div><div><span>Sample cleaning fee</span><b>${sampleCleaning}</b></div>{early&&<div><span>Early check-in</span><b>$35</b></div>}{late&&<div><span>Late checkout</span><b>$35</b></div>}<div><span>Illustrative tax (10%)</span><b>${(subtotal*sampleTax).toFixed(2)}</b></div><div className="total"><span>ESTIMATED TOTAL</span><b>${total.toFixed(2)}</b></div></div>:<p className="estimateHint">Select check-in and checkout dates to see an illustrative estimate.</p>}
-   <button className="checkoutButton" disabled>ONLINE BOOKING COMING SOON <ArrowRight size={17}/></button><p className="disclaimer">Demo only. Rates, taxes, availability and fees are placeholders. No reservation or payment is collected.</p></div></section>
-  <footer><div><a className="footerBrand" href="#">EDISON NOOK</a><p>A quieter kind of getaway.<br/>Northern Michigan.</p></div><div><span>EXPLORE</span><a href="#stay">The Stay</a><a href="#gallery">Gallery</a><a href="#explore">Local Guide</a></div><div><span>PLAN</span><a href="#book">Plan a Stay</a><a href="#reviews">Guest Reviews</a></div><div className="footerBottom">© {new Date().getFullYear()} EDISON NOOK. ALL RIGHTS RESERVED. <span>MADE FOR MEMORABLE STAYS.</span></div></footer>
- </main>;
+export default function Home() {
+  const [heroPhoto] = propertyPhotos;
+
+  return (
+    <>
+      <section className="shell hero">
+        <div className="hero-copy">
+          <p className="kicker">Petoskey area · Northern Michigan</p>
+          <h1>A little time <em>Up North.</em></h1>
+          <p className="lead">Slow mornings, days by Little Traverse Bay, and a place to come back to. Make Edison Nook your home base in Northern Michigan.</p>
+          <div className="actions">
+            <Link className="button" href="/book">Book Your Stay</Link>
+            <Link className="text-link" href="/stay">Get to know Edison Nook</Link>
+          </div>
+        </div>
+        {heroPhoto ? (
+          <div className="hero-photo"><Image {...heroPhoto} fill sizes="(max-width: 790px) 100vw, 50vw" priority /></div>
+        ) : (
+          <div className="hero-art" aria-hidden="true"><span>E<span className="gold">&amp;</span>N</span></div>
+        )}
+      </section>
+      <section className="shell home-links" aria-label="Plan your getaway">
+        <article><p className="kicker">Edison Nook</p><h2>The Stay</h2><p>Get a feel for the retreat and see what’s coming to the property gallery.</p><Link className="text-link" href="/stay">See the stay</Link></article>
+        <article><p className="kicker">Little Traverse Bay</p><h2>Explore Nearby</h2><p>Spend a day on the waterfront, wander downtown Petoskey, or head out into Boyne Country.</p><Link className="text-link" href="/explore">Browse the local guide</Link></article>
+        <article><p className="kicker">Before you travel</p><h2>Plan Your Visit</h2><p>Find booking updates and answers to common questions about staying at Edison Nook.</p><Link className="text-link" href="/faq">Read the FAQs</Link></article>
+      </section>
+    </>
+  );
 }

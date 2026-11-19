@@ -1,22 +1,22 @@
-# Edison Nook — website starter
+# Edison Nook
 
-Elegant, responsive Next.js starter for Edison Nook, a Northern Michigan short-term rental.
+A Next.js site for a Northern Michigan vacation rental.
 
-## Start in GitHub Codespaces
-1. Create a new GitHub repository named `edison-nook`.
-2. Upload the contents of this folder to the repository (or push with Git).
-3. Open the repository in Codespaces.
-4. Run `npm install` and then `npm run dev`.
-5. Open port 3000.
-6. Import the GitHub repository into Vercel for deployment.
+Run `npm ci` and `npm run dev`. Check the production build with `npm run build`.
 
-## Important: demo-only booking
-The booking form currently displays **illustrative** pricing: $225/night, $125 cleaning fee, 10% illustrative tax, and $35 each for early check-in and late checkout. The prices, tax and availability are NOT configured for the property. The booking button is intentionally disabled. No payments are collected and no bookings are saved.
+## Direct reservations
 
-## Before accepting bookings
-- Confirm property details, occupancy limits, taxes, cancellation policies, and actual pricing.
-- Implement a server-side booking database (e.g. Supabase), exclusive reservation holds, and Stripe Checkout with verified webhooks.
-- Implement Airbnb iCal import/export and monitor sync status. iCal is not instant, so plan for race conditions/double-booking risk or use a compatible channel manager.
-- Make early check-in and late checkout subject to cleaning/adjacent reservation constraints.
-- Add authenticated owner admin, transactional emails, guest terms/privacy policy, and proper production testing.
-- Replace all placeholder blocks with photos and publish verified guest reviews only.
+Set `EDISON_NOOK_BOOKING_URL` to the HTTPS guest checkout or booking-engine URL and
+`EDISON_NOOK_CONTACT_EMAIL` to the public guest inquiry address, then redeploy. The
+site links guests to the configured provider for availability, rates and fees,
+house rules, cancellation terms, payment, and reservation confirmation. Until a
+booking URL is configured, the site displays a coming-soon message.
+
+Configure real inventory, policies, price and tax rules, payments, and channel
+sync in the booking provider before enabling the link. Add property photos and
+verified occupancy, sleeping arrangements, amenities, and arrival details to
+the guest pages as they become available.
+
+For the homepage and gallery, put images under `public/photos/` and add their
+paths and descriptive alt text to `propertyPhotos` in `app/site-config.ts`. The
+first image is used on the homepage.
