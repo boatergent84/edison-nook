@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "../seo";
+import { BreadcrumbStructuredData } from "../structured-data";
 
-export const metadata: Metadata = {
-  title: "Booking Direct",
-  description: "Learn what to expect when Edison Nook direct reservations open. Planned opening January 2027; rates are not posted yet.",
-  alternates: { canonical: "/compare" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Direct Booking at Edison Nook",
+  description: "Learn how booking directly with Edison Nook in Boyne Falls will work when reservations open. Rates and availability are not posted yet.",
+  path: "/compare",
+});
 
 const plans = [
   ["Choose your dates", "When reservations open, you’ll be able to review dates and stay details before sending a booking request."],
@@ -16,6 +18,7 @@ const plans = [
 export default function Compare() {
   return (
     <section className="shell inner">
+      <BreadcrumbStructuredData label="Why Book Direct" path="/compare" />
       <p className="kicker">Planned opening · January 2027</p>
       <h1>Booking <em>Direct</em></h1>
       <p className="lead">We’re getting Edison Nook ready for its first guests. Direct reservations aren’t open yet, and rates will be added closer to launch.</p>

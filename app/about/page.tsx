@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "../seo";
+import { BreadcrumbStructuredData } from "../structured-data";
 
-export const metadata: Metadata = {
-  title: "About Edison Nook",
-  description: "Meet Edison Nook, a planned January 2027 hilltop getaway in Boyne Falls near Walloon Lake, Petoskey, and Boyne Mountain Resort.",
-  alternates: { canonical: "/about" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "About Our Boyne Falls Getaway",
+  description: "Get to know Edison Nook, a planned hilltop vacation rental in Boyne Falls, Michigan, near Walloon Lake, Petoskey, and Boyne Mountain Resort.",
+  path: "/about",
+});
 
 const nearbyDestinations = [
   ["Walloon Lake Village public beach", "7.3 miles"],
@@ -18,6 +20,7 @@ const nearbyDestinations = [
 export default function About() {
   return (
     <section className="shell inner">
+      <BreadcrumbStructuredData label="About Edison Nook" path="/about" />
       <p className="kicker">Boyne Falls / Petoskey · Northern Michigan</p>
       <h1>About <em>Edison Nook</em></h1>
       <div className="about-intro">
