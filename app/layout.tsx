@@ -3,8 +3,9 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.edisonnook.com"),
   title: { default: "Edison Nook | A Northern Michigan getaway", template: "%s | Edison Nook" },
-  description: "Get to know Edison Nook near Petoskey and plan your Northern Michigan stay.",
+  description: "Discover Edison Nook, a Northern Michigan getaway near Petoskey. Planned opening January 2027; reservations are not open yet.",
 };
 
 const links = [
@@ -27,8 +28,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
             <Link href="/guests">Guest Guide</Link>
           </nav>
-          <Link className="button" href="/book">Book Your Stay</Link>
+          <Link className="button" href="/book">Opening Jan 2027</Link>
         </header>
+        <div className="prelaunch-banner" role="status">Planned opening: January 2027 <span>·</span> Reservations are not open yet</div>
         <main id="content">{children}</main>
         <footer>
           <div className="shell footer-inner">

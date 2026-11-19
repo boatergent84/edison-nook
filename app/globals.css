@@ -29,6 +29,8 @@ p { margin: 0 0 1rem; }
 nav { display: flex; align-items: center; flex-wrap: wrap; gap: .55rem 1.35rem; }
 nav a { text-decoration: none; font-size: .94rem; }
 nav a:hover { text-decoration: underline; text-underline-offset: .3em; }
+.prelaunch-banner { padding: .7rem 1rem; background: var(--navy); color: #fff; text-align: center; font-size: .9rem; font-weight: 600; }
+.prelaunch-banner span { padding-inline: .4rem; color: #d6ba80; }
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: .65rem 1.25rem; background: var(--navy); color: #fff; border: 1px solid var(--navy); text-decoration: none; font-weight: 650; font-size: .95rem; text-align: center; }
 .button:hover { background: #28435e; }
 .text-link { color: var(--navy); text-decoration-color: var(--gold); text-underline-offset: .3em; font-weight: 650; }
@@ -125,3 +127,40 @@ footer p { margin: .65rem 0 0; font-size: .94rem; }
 .nearby dl { margin: 0; }
 .nearby dl div { display: flex; justify-content: space-between; gap: 1rem; padding-block: .65rem; border-top: 1px solid var(--line); }
 .nearby dd { margin: 0; font-weight: 650; color: var(--navy); white-space: nowrap; }
+
+.booking-intro { max-width: 43rem; font-size: 1.1rem; }
+.booking-layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(17rem, .75fr); gap: 1.25rem; align-items: start; margin-top: 1.75rem; }
+.calendar-panel, .stay-summary { margin: 0; }
+.calendar-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.calendar-heading h2, .stay-summary h2 { font-size: clamp(1.55rem, 3vw, 2.15rem); }
+.calendar-heading p { font-size: .95rem; }
+.calendar-controls { display: flex; gap: .5rem; }
+.calendar-arrow { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border: 1px solid var(--line); background: #fff; color: var(--navy); cursor: pointer; }
+.calendar-arrow:hover:not(:disabled) { background: #f1ede4; }
+.calendar-arrow:disabled { opacity: .42; cursor: not-allowed; }
+.calendar-month { margin: .5rem 0 .7rem; color: var(--navy); font-weight: 700; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .25rem; }
+.calendar-weekday { padding-block: .4rem; text-align: center; color: #65717d; font-size: .8rem; font-weight: 700; }
+.calendar-day { min-height: 2.65rem; border: 1px solid transparent; background: transparent; color: var(--navy); font: inherit; cursor: pointer; }
+.calendar-day:hover:not(:disabled) { border-color: var(--gold); background: #f5f0e5; }
+.calendar-day.outside { color: #8c9399; }
+.calendar-day:disabled { color: #b8b8b5; text-decoration: line-through; cursor: not-allowed; }
+.calendar-day.in-range { background: #eee8d9; }
+.calendar-day.selected { border-color: var(--navy); background: var(--navy); color: #fff; font-weight: 700; }
+.calendar-note { margin: 1rem 0 0; padding-top: .8rem; border-top: 1px solid var(--line); color: #5f6972; font-size: .86rem; }
+.stay-summary .kicker { margin-bottom: .65rem; }
+.stay-dates { margin: 1.3rem 0; }
+.stay-dates div { display: flex; justify-content: space-between; gap: 1rem; padding: .7rem 0; border-top: 1px solid var(--line); }
+.stay-dates dt { color: #65717d; }
+.stay-dates dd { margin: 0; color: var(--navy); font-weight: 650; text-align: right; }
+.guest-count { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: .7rem; border-top: 1px solid var(--line); color: #65717d; }
+.guest-count input { width: 5rem; padding: .45rem .55rem; border: 1px solid var(--line); color: var(--navy); font: inherit; }
+.booking-submit { display: flex; width: 100%; margin-top: 1.25rem; }
+.booking-prompt, .booking-contact-note { margin: 1.25rem 0 0; padding: .8rem; background: #fff; font-size: .9rem; }
+.calendar-day:focus-visible, .calendar-arrow:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.prelaunch-note { margin-block: 1.3rem; padding: 1rem 1.2rem; border-left: 3px solid var(--gold); background: var(--paper); }
+.prelaunch-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-block: 2rem; }
+.prelaunch-grid .panel { margin: 0; }
+.prelaunch-grid h2 { font-size: clamp(1.45rem, 2.6vw, 1.9rem); }
+@media (max-width: 790px) { .booking-layout, .prelaunch-grid { grid-template-columns: 1fr; } }
+@media (max-width: 420px) { .calendar-grid { gap: 0; } .calendar-day { min-height: 2.4rem; } .calendar-panel { padding: 1rem; } }

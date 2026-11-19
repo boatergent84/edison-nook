@@ -2,13 +2,19 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { bookingUrl, contactEmail, propertyPhotos } from "../site-config";
+import { contactEmail, propertyPhotos } from "../site-config";
 
 const titles = {
   stay: "The Stay",
   explore: "Explore Nearby",
   faq: "FAQs & Policies",
   contact: "Contact",
+};
+const descriptions = {
+  stay: "Learn about Edison Nook, a planned Northern Michigan getaway in Boyne Falls opening January 2027.",
+  explore: "Explore Petoskey, Little Traverse Bay, Boyne Country, and nearby Northern Michigan destinations from Edison Nook.",
+  faq: "Find opening, reservation, and location details for Edison Nook near Petoskey. Planned opening January 2027.",
+  contact: "Contact Edison Nook with questions about the planned January 2027 opening in Boyne Falls, Michigan.",
 };
 
 type Props = { params: Promise<{ section: string }> };
@@ -20,7 +26,11 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { section } = await params;
-  return { title: titles[section as keyof typeof titles] };
+  return {
+    title: titles[section as keyof typeof titles],
+    description: descriptions[section as keyof typeof descriptions],
+    alternates: { canonical: `/${section}` },
+  };
 }
 
 const places = [
@@ -50,7 +60,7 @@ export default async function GuestPage({ params }: Props) {
               </div>
             ) : <p>Photos of Edison Nook are coming soon.</p>}
           </div>
-          <Link className="button" href="/book">Book Your Stay</Link>
+          <Link className="button" href="/book">Plan Your 2027 Stay</Link>
         </>
       )}
       {section === "explore" && (
@@ -68,8 +78,8 @@ export default async function GuestPage({ params }: Props) {
       )}
       {section === "faq" && (
         <div className="faq">
-          <details><summary>How do I book?</summary><p>{bookingUrl ? "Open the reservation portal to check dates and book." : "Online reservations are coming soon."} <Link href="/book">Visit the booking page</Link>.</p></details>
-          {bookingUrl && <details><summary>Where can I see rates and cancellation terms?</summary><p>Review the price and terms for your dates in the reservation portal before you confirm.</p></details>}
+          <details><summary>When is Edison Nook opening?</summary><p>The planned opening is January 2027. We’ll share updates as the date gets closer.</p></details>
+          <details><summary>Can I book now?</summary><p>Reservations are not open yet. Rates and live availability will be added closer to opening. <Link href="/book">See opening details</Link>.</p></details>
           <details><summary>Where is Edison Nook?</summary><p>Edison Nook is in Boyne Falls, just south of the Petoskey ZIP code line. Downtown Petoskey is about 9.6 miles by road. <Link href="/about#nearby-heading">See driving distances to nearby destinations</Link>.</p></details>
           {!propertyPhotos.length && <details><summary>When will property photos be available?</summary><p>Photos will be added to <Link href="/stay">The Stay</Link> as soon as they’re ready.</p></details>}
         </div>
@@ -78,7 +88,7 @@ export default async function GuestPage({ params }: Props) {
         <div className="panel">
           <h2>Questions about your stay?</h2>
           {contactEmail ? (
-            <><p>Send us your travel dates and any questions about Edison Nook.</p><a className="button" href={`mailto:${contactEmail}`}>Email Edison Nook</a></>
+            <><p>Ask a question or request an update about Edison Nook’s planned opening.</p><a className="button" href={`mailto:${contactEmail}?subject=Edison%20Nook%20opening%20update`}>Email Edison Nook</a></>
           ) : (
             <><p>Contact details will be added before reservations open.</p><Link className="text-link" href="/faq">Read the guest FAQs</Link></>
           )}

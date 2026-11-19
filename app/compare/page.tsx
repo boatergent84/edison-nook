@@ -1,32 +1,29 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Airbnb vs. Booking Direct" };
+export const metadata: Metadata = {
+  title: "Booking Direct",
+  description: "Learn what to expect when Edison Nook direct reservations open. Planned opening January 2027; rates are not posted yet.",
+  alternates: { canonical: "/compare" },
+};
 
-const comparisons = [
-  ["Two-night total", "$480", "$540"],
-  ["Check-in", "Request 2 p.m. when available", "Standard 4 p.m. check-in"],
-  ["Checkout", "Request noon when available", "Standard 10 a.m. checkout"],
-  ["Questions and special requests", "Contact Edison Nook directly", "Message the host through Airbnb"],
+const plans = [
+  ["Choose your dates", "When reservations open, you’ll be able to review dates and stay details before sending a booking request."],
+  ["Ask the host directly", "Have a question about the house or the area? You’ll be able to contact Edison Nook directly."],
+  ["Review the terms first", "Rates, fees, and cancellation terms will be posted before direct reservations open."],
 ];
 
 export default function Compare() {
   return (
     <section className="shell inner">
-      <p className="kicker">Compare booking options</p>
-      <h1>Airbnb vs. <em>Booking Direct</em></h1>
-      <p className="lead">Booking direct could mean a lower total and more flexibility with arrival and departure.</p>
-      <div className="comparison">
-        <table>
-          <caption>Example only. These sample prices and times are for illustration. Compare actual totals and terms for your dates before booking.</caption>
-          <thead><tr><th scope="col">Your stay</th><th scope="col">Book direct</th><th scope="col">Airbnb</th></tr></thead>
-          <tbody>{comparisons.map(([label, direct, airbnb]) => (
-            <tr key={label}><th scope="row">{label}</th><td>{direct}</td><td>{airbnb}</td></tr>
-          ))}</tbody>
-        </table>
+      <p className="kicker">Planned opening · January 2027</p>
+      <h1>Booking <em>Direct</em></h1>
+      <p className="lead">We’re getting Edison Nook ready for its first guests. Direct reservations aren’t open yet, and rates will be added closer to launch.</p>
+      <div className="prelaunch-grid">
+        {plans.map(([title, description]) => <article className="panel" key={title}><h2>{title}</h2><p>{description}</p></article>)}
       </div>
-      <p>In this example, booking direct saves $60. Early arrival and late checkout depend on the reservation schedule and host confirmation.</p>
-      <div className="actions"><Link className="button" href="/book">Book Your Stay</Link></div>
+      <p className="prelaunch-note">No rates or live availability are being shown yet. The opening date is planned for January 2027.</p>
+      <div className="actions"><Link className="button" href="/book">Get opening details</Link><Link className="text-link" href="/faq">Read the FAQs</Link></div>
     </section>
   );
 }

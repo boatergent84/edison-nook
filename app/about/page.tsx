@@ -3,7 +3,8 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About Edison Nook",
-  description: "Meet Edison Nook, a hilltop getaway in Boyne Falls near Walloon Lake, Petoskey, and Boyne Mountain Resort.",
+  description: "Meet Edison Nook, a planned January 2027 hilltop getaway in Boyne Falls near Walloon Lake, Petoskey, and Boyne Mountain Resort.",
+  alternates: { canonical: "/about" },
 };
 
 const nearbyDestinations = [
@@ -64,7 +65,7 @@ export default function About() {
         </article>
       </div>
       <div className="actions">
-        <Link className="button" href="/book">Book Your Stay</Link>
+        <Link className="button" href="/book">Plan Your 2027 Stay</Link>
         <Link className="text-link" href="/explore">Explore Nearby</Link>
       </div>
     </section>

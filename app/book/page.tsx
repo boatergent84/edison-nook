@@ -1,31 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { bookingUrl, contactEmail } from "../site-config";
+import BookingCalendar from "./booking-calendar";
+import { contactEmail } from "../site-config";
 
-export const metadata: Metadata = { title: "Book Your Stay" };
+export const metadata: Metadata = {
+  title: "Opening January 2027",
+  description: "Plan a future stay at Edison Nook in Boyne Falls, Michigan. Reservations are not open yet; planned opening January 2027.",
+  alternates: { canonical: "/book" },
+};
 
 export default function Book() {
   return (
     <section className="shell inner">
-      <p className="kicker">Reservations</p>
-      <h1>Book Your <em>Stay</em></h1>
-      <div className="panel">
-        {bookingUrl ? (
-          <>
-            <h2>Check your dates</h2>
-            <p>Choose your dates and guest count in the reservation portal. Review availability, the full price, and the cancellation terms before you confirm.</p>
-            <a className="button" href={bookingUrl}>Check Availability</a>
-          </>
-        ) : (
-          <>
-            <h2>Online reservations are coming soon</h2>
-            <p>The Edison Nook reservation calendar is getting ready. Check back for available dates and rates.</p>
-            {contactEmail && <a className="button" href={`mailto:${contactEmail}?subject=Edison%20Nook%20stay%20inquiry`}>Ask About a Stay</a>}
-          </>
-        )}
-      </div>
+      <p className="kicker">Planned opening · January 2027</p>
+      <h1>Coming <em>Up North.</em></h1>
+      <div className="prelaunch-note" role="status"><strong>Reservations aren’t open yet.</strong> We’re preparing Edison Nook for a planned January 2027 opening. This calendar is for preferred-date inquiries only; it does not show availability or reserve a stay.</div>
+      <p className="booking-intro">Have a future trip in mind? Choose preferred dates and guest count to send us an inquiry. We’ll share updates as the opening gets closer.</p>
+      <BookingCalendar contactEmail={contactEmail} />
       <div className="actions">
-        <Link className="text-link" href="/compare">Compare Airbnb and booking direct</Link>
+        <Link className="text-link" href="/compare">Why book direct when reservations open</Link>
         <Link className="text-link" href="/faq">Read the booking FAQs</Link>
       </div>
     </section>
