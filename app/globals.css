@@ -55,7 +55,7 @@ nav a:hover { text-decoration: underline; text-underline-offset: .3em; }
   left: 50%;
   width: calc(100% - 2.5rem);
   height: 122%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(.9);
   object-fit: contain;
 }
 .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1rem; }
